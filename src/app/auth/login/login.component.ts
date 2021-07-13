@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UsuarioService } from '../../services/usuario.service';
+import { UsuarioService } from '../../services/user.service';
 import Swal from 'sweetalert2';
 
 declare const gapi:any;
@@ -47,17 +47,23 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/');
 
       }, (error) => {
+        
         let errors = error.error.errors
-        let message = ''
-        if(errors.email){
-          console.log('errores de email')
-          message += `${errors.email.msg}`
+        if(errors != undefined){
+
+          let message = ''
+          if(errors.email){
+            console.log('errores de email')
+            message += `${errors.email.msg}`
+          }
+          if(errors.password){
+            console.log('errores de password')
+            message += `<br>${errors.password.msg}`
+          }
+          Swal.fire('Error', `${message}`, 'error' );
+        }else{
+          Swal.fire('Error', `Posible usuario no existente o falla del servidor`, 'error' );
         }
-        if(errors.password){
-          console.log('errores de password')
-          message += `<br>${errors.password.msg}`
-        }
-        Swal.fire('Error', `${message}`, 'error' );
       });
 
   }
@@ -103,5 +109,15 @@ export class LoginComponent implements OnInit {
             console.log(error)
         });
   }
+
+  fieldNotValid( campo: string ): boolean {
+    if ( this.loginForm.get(campo).invalid && this.loginForm.get(campo).touched ) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+ 
 
 }

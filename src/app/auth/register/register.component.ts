@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2'
 
-import { UsuarioService } from '../../services/usuario.service';
+import { UsuarioService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -15,20 +15,20 @@ export class RegisterComponent {
   public formSubmitted = false;
 
   public registerForm = this.fb.group({
-    nombre: ['Fernando', Validators.required ],
+    name: ['Fernando', Validators.required ],
     email: ['test100@gmail.com', [ Validators.required, Validators.email ] ],
     password: ['123456', Validators.required ],
     password2: ['123456', Validators.required ],
-    terminos: [ true, Validators.required ],
+    terms: [ true, Validators.required ],
   }, {
-    validators: this.passwordsIguales('password', 'password2')
+    validators: this.passwordsSame('password', 'password2')
   });
 
   constructor( private fb: FormBuilder,
                private usuarioService: UsuarioService,
                private router: Router ) { }
 
-  crearUsuario() {
+  createUser() {
     this.formSubmitted = true;
     console.log( this.registerForm.value );
 
@@ -37,7 +37,7 @@ export class RegisterComponent {
     }
 
     // Realizar el posteo
-    this.usuarioService.crearUsuario( this.registerForm.value )
+    this.usuarioService.createUser( this.registerForm.value )
         .subscribe( resp => {
           
           // Navegar al Dashboard
@@ -51,7 +51,7 @@ export class RegisterComponent {
 
   }
 
-  campoNoValido( campo: string ): boolean {
+  fieldNotValid( campo: string ): boolean {
     
     if ( this.registerForm.get(campo).invalid && this.formSubmitted ) {
       return true;
@@ -61,7 +61,7 @@ export class RegisterComponent {
 
   }
 
-  contrasenasNoValidas() {
+  passwordNoValid() {
     const pass1 = this.registerForm.get('password').value;
     const pass2 = this.registerForm.get('password2').value;
 
@@ -73,11 +73,11 @@ export class RegisterComponent {
 
   }
 
-  aceptaTerminos() {
+  acceptTerms() {
     return !this.registerForm.get('terminos').value && this.formSubmitted;
   }
 
-  passwordsIguales(pass1Name: string, pass2Name: string ) {
+  passwordsSame(pass1Name: string, pass2Name: string ) {
 
     return ( formGroup: FormGroup ) => {
 
