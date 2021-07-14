@@ -754,7 +754,7 @@ Main sidebar
 ******************/
 .left-sidebar {
   position: absolute;
-  width: 240px;
+  width: 290px;
   height: 100%;
   top: 0px;
   z-index: 20;
@@ -952,7 +952,7 @@ When click on sidebar toggler and also for tablet
     position: fixed; }
   .mini-sidebar .left-sidebar,
   .mini-sidebar .sidebar-footer {
-    left: -240px; }
+    /* left: -290px;  */}
   .mini-sidebar.show-sidebar .left-sidebar,
   .mini-sidebar.show-sidebar .sidebar-footer {
     left: 0px; } }
@@ -1356,8 +1356,8 @@ Notify
 
 .right-sidebar {
   position: fixed;
-  right: -240px;
-  width: 240px;
+  /* right: -290px; */
+  width: 290px;
   display: none;
   z-index: 1100;
   background: #ffffff;
@@ -1393,7 +1393,7 @@ Notify
 
 .shw-rside {
   right: 0px;
-  width: 240px;
+  width: 290px;
   display: block; }
 
 .chatonline img {
@@ -5670,7 +5670,7 @@ File: scss
   .website-visitor {
     height: 333px; }
   .auto-height {
-    min-height: 240px; } }
+    min-height: 290px; } }
 
 /*============================================================== 
  For Laptop & above all (1370px) 
@@ -5690,7 +5690,7 @@ File: scss
  ============================================================== */
 @media (min-width: 1024px) {
   .page-wrapper {
-    margin-left: 240px; } }
+    margin-left: 290px; } }
 
 @media (max-width: 1023px) {
   .page-wrapper {
@@ -5725,7 +5725,7 @@ File: scss
  ============================================================== */
 @media (min-width: 768px) {
   .navbar-header {
-    width: 240px;
+    width: 290px;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0; }

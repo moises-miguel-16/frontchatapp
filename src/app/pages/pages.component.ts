@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessagesService } from '../services/messages.service';
+// import { MessagesService } from '../services/messages.service';
 
 import { SettingsService } from '../services/settings.service';
 
@@ -13,17 +13,17 @@ declare function customInitFunctions();
 })
 export class PagesComponent implements OnInit {
 
-  constructor( private settingsService: SettingsService,private messagesService: MessagesService ) { 
-    this.getAllMessages()
+  constructor(  private settingsService: SettingsService/*,private messagesService: MessagesService */ ) { 
+    // this.getAllMessages()
   }
 
   ngOnInit(): void {
     customInitFunctions();
   }
-  getAllMessages(): void {
+  /* getAllMessages(): void {
     this.messagesService.getAllMessagesAfterLogin().subscribe(rpta => {
-      console.log(rpta)
+      console.log(rpta.payload)
     })
   }
-
+ */
 }

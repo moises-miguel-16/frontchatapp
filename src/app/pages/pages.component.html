@@ -1,46 +1,48 @@
+<style type="text/css">
+@media(max-width:991px){
+    .roulet{
+        display:none
+    }
+    .head{
+        text-align: center;
+    }
+}
 
 
+@media(max-width:338px){
+    .side{
+        font-size: 12px
+    }
+}
 
-<div id="main-wrapper">
+</style>
+<div id="main-wrapper" class="allpage mt-3" style="background-color: rgb(221, 221, 221);
+display:grid;grid-template-rows: 1fr 13fr auto ;min-height: 100%;  padding-left: 3rem; padding-right: 3rem;">
 
-    <app-header></app-header>
-
-    <app-sidebar></app-sidebar>
-
-    <div class="page-wrapper">
-        <div class="container-fluid">
-            <!-- Breadcrumbs -->
-            <app-breadcrumbs></app-breadcrumbs>
-
-            <!-- Mi sistema de rutas -->
-            <router-outlet></router-outlet>
-
-            <!-- 
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div> 
-            -->
-
+    <div class="row bg-success d-flex justify-content-between p-2 head">
+        <div><h1 class="my-auto">CHAT APP</h1></div>
+        
+        <div class="my-auto" style="cursor:pointer">
+            <app-header></app-header>
         </div>
-
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer">
-            © 20xx Admin Pro by wrappixel.com
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
-
     </div>
 
 
-</div>
+    <div class="row" style="background-color: rgb(226, 226, 226);" >
+        <div class="col-lg-5 col-sm-12 side">
 
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-lg-7 bg-dark roulet">
+
+            <app-dashboard></app-dashboard>
+        </div>
+    </div>
+    <div class="row bg-success text-center text-light">
+        <div class="col-12 my-auto">
+
+            Footer
+        </div>
+    </div>
+
+</div>

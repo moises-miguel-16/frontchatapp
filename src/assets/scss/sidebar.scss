@@ -12,7 +12,7 @@ Main sidebar
 
 .left-sidebar {
     position: absolute;
-    width: 240px;
+    width: 290px;
     height: 100%;
     top: 0px;
     z-index: 20;
@@ -273,7 +273,7 @@ When click on sidebar toggler and also for tablet
         }
         .left-sidebar,
         .sidebar-footer {
-            left: -240px;
+            left: -290px;
         }
         &.show-sidebar {
             .left-sidebar,

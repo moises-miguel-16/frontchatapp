@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { MessagesService } from '../../services/messages.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,14 +9,26 @@ import { SidebarService } from '../../services/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-  menuItems: any[];
+  public messages: any[];
 
-  constructor( private sidebarService: SidebarService ) {
-    this.menuItems = sidebarService.menu;
-    console.log(this.menuItems)
+
+  constructor( private messagesService: MessagesService ) {
+    this.getAllMessages()
   }
 
   ngOnInit(): void {
+  }
+  getAllMessages(): void {
+    this.messagesService.getAllMessagesAfterLogin().
+    subscribe(rpta => {
+      console.log(rpta.payload)
+      this.messages = rpta.payload;
+      this.messages.forEach((msg:any)=>{
+        if(msg.uid == Number(localStorage.getItem('iduser'))){
+          msg.you = true;
+        }
+      })
+    })
   }
 
 }

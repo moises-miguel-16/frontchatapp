@@ -67,6 +67,7 @@ export class UsuarioService {
     }).pipe(
       tap( (resp: any) => {
         localStorage.setItem('token', resp.token );
+        localStorage.setItem('iduser', resp.user.uid );
       }),
       map( resp => true),
       catchError( error => of(false) )

@@ -29,7 +29,7 @@ File: scss
         height:333px; 
     }
     .auto-height{
-        min-height:240px;   
+        min-height:290px;   
     }
 }
 /*============================================================== 
@@ -56,7 +56,7 @@ File: scss
 
 @media(min-width:1024px) {
     .page-wrapper {
-        margin-left: 240px;
+        margin-left: 290px;
     }
     
 }
@@ -110,7 +110,7 @@ File: scss
 
 @media(min-width:768px) {
     .navbar-header {
-        width: 240px;
+        width: 290px;
         flex-shrink: 0;
         .navbar-brand {
             padding-top: 0px;
